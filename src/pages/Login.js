@@ -17,7 +17,7 @@ const Login = (props) => {
   };
 
   const login = () => {
-    dispatch(userActions.logIn({ user_name: "perl" }));
+    dispatch(userActions.login({ user_name: "perl" }));
   };
   return (
     <React.Fragment>

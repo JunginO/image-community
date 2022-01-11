@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ConnectedRouter } from "connected-react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ConnectedRouter as Router } from "connected-react-router";
 import { history } from "../redux/configureStore";
 import PostList from "../pages/PostList";
 import Login from "../pages/Login";
@@ -13,13 +13,14 @@ function App() {
     <React.Fragment>
       <Grid>
         <Header></Header>
-        <ConnectedRouter history={history}>
+
+        <Router history={history}>
           <Routes>
-            <Route path="/" element={<PostList />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/" exact component={PostList} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/signup" exact component={Signup} />
           </Routes>
-        </ConnectedRouter>
+        </Router>
       </Grid>
     </React.Fragment>
   );
