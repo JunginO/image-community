@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ConnectedRouter as Router } from "connected-react-router";
 import { history } from "../redux/configureStore";
 import PostList from "../pages/PostList";
@@ -13,14 +13,11 @@ function App() {
     <React.Fragment>
       <Grid>
         <Header></Header>
-
-        <Router history={history}>
-          <Routes>
-            <Route path="/" exact component={PostList} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/signup" exact component={Signup} />
-          </Routes>
-        </Router>
+        <Routes>
+          <Route path="/" element={<PostList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
       </Grid>
     </React.Fragment>
   );
